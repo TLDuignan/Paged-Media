@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+/*** page styling***/
+html {
+  font: 17px/1.3 'Open Sans', Verdana, sans-serif;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 85%;
+}
+
+/***** Book Cover *****/
+header {
+  background-color: rgb(243, 184, 106);
+  border: 10px solid #333;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  color: #333;
+  font-size: 3rem;
+}
+
+header span {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/***** Chapters *****/
+#wrapper > section {
+  border-bottom: 10px dotted #333;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+#wrapper > section:last-of-type {
+  border-bottom: 10px double #333;
+}
+
+section h1 {
+  background-color: #333;
+  color: #fff;
+  font-variant: small-caps;
+  margin-top: 0;
+  padding: 1rem;
+}
+
+h2:not(:first-of-type) {
+  margin-top: 3rem;
+}
+
+/***** Figures *****/
+
+#figures {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+#figures > div {
+  display: flex;
+  justify-content: space-around;
+}
+
+figure {
+  text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/***** Chapter Numbering *****/
+body {
+  counter-reset: chapter-num;
+}
+
+#wrapper > section:not(#toc) h1::before {
+  content: "Chapter " counter(chapter-num) " : ";
+  counter-increment: chapter-num;
+}
+
+/*****Table of Contents *****/
+#wrapper > #toc {
+  border-bottom: none;
+}
